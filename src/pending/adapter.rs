@@ -3,7 +3,7 @@
 use std::collections::BTreeSet;
 
 use alloy_primitives::{Address, keccak256};
-use alloy_rpc_types_eth::Log;
+use crate::alloy_rpc_types_eth::Log;
 
 use crate::{FeedRegistration, FeedSource, OracleAdapterId, decode_ocr2_new_transmission};
 

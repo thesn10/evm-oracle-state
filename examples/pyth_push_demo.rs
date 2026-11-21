@@ -8,11 +8,11 @@ use std::{
 };
 
 #[cfg(feature = "pyth")]
-use alloy_network::{AnyNetwork, Ethereum};
+use evm_oracle_state::alloy_network::{AnyNetwork, Ethereum};
 #[cfg(feature = "pyth")]
 use alloy_primitives::{Address, B256};
 #[cfg(feature = "pyth")]
-use alloy_provider::{ProviderBuilder, RootProvider, WsConnect};
+use evm_oracle_state::alloy_provider::{ProviderBuilder, RootProvider, WsConnect};
 #[cfg(feature = "pyth")]
 use evm_fork_cache::{
     cache::EvmCache,

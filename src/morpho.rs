@@ -3,7 +3,7 @@ use std::{
     time::{SystemTime, UNIX_EPOCH},
 };
 
-use alloy_network::Ethereum;
+use crate::alloy_network::Ethereum;
 use alloy_primitives::{Address, B256, I256, U256};
 use alloy_sol_types::sol;
 use evm_fork_cache::{cache::EvmCache, reactive::ReactiveHandler};

@@ -652,7 +652,7 @@ impl PendingOracleRuntime {
     /// and removed logs are ignored.
     pub fn observe_confirmed_log(
         &self,
-        log: &alloy_rpc_types_eth::Log,
+        log: &crate::alloy_rpc_types_eth::Log,
     ) -> Vec<PendingOracleResolution> {
         if log.removed {
             return Vec::new();

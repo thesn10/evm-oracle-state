@@ -4,9 +4,9 @@ use std::{
     sync::Arc,
 };
 
-use alloy_network::Ethereum;
+use crate::alloy_network::Ethereum;
 use alloy_primitives::{Address, B256, I256, U256, keccak256};
-use alloy_rpc_types_eth::Filter;
+use crate::alloy_rpc_types_eth::Filter;
 use alloy_sol_types::sol;
 use evm_fork_cache::{
     StateView,

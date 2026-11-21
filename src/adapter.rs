@@ -1,6 +1,6 @@
 use std::{borrow::Cow, collections::BTreeMap, future::Future, pin::Pin, sync::Arc};
 
-use alloy_network::Ethereum;
+use crate::alloy_network::Ethereum;
 use alloy_primitives::{Address, I256};
 use evm_fork_cache::{cache::EvmCache, reactive::ReactiveHandler};
 

@@ -5,13 +5,13 @@ use std::{
     time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
 
-use alloy_network::{AnyNetwork, Ethereum, TransactionBuilder};
+use evm_oracle_state::alloy_network::{AnyNetwork, Ethereum, TransactionBuilder};
 use alloy_primitives::{Address, B256, Bytes, U256, address};
-use alloy_provider::{Provider, RootProvider};
-use alloy_rpc_client::RpcClient;
-use alloy_rpc_types_eth::{Filter, Log as RpcLog, TransactionRequest};
+use evm_oracle_state::alloy_provider::{Provider, RootProvider};
+use evm_oracle_state::alloy_rpc_client::RpcClient;
+use evm_oracle_state::alloy_rpc_types_eth::{Filter, Log as RpcLog, TransactionRequest};
 use alloy_sol_types::SolCall;
-use alloy_transport::mock::Asserter;
+use evm_oracle_state::alloy_provider::mock::Asserter;
 use evm_fork_cache::{
     StateUpdate,
     cache::EvmCache,

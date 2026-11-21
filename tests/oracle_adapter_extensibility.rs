@@ -1,11 +1,11 @@
 use std::{borrow::Cow, collections::BTreeMap, sync::Arc};
 
-use alloy_network::Ethereum;
+use evm_oracle_state::alloy_network::Ethereum;
 use alloy_primitives::{Address, B256, Bytes, I256, Log as PrimitiveLog, U256};
-use alloy_provider::{RootProvider, network::AnyNetwork};
-use alloy_rpc_client::RpcClient;
-use alloy_rpc_types_eth::{Filter, Log as RpcLog};
-use alloy_transport::mock::Asserter;
+use evm_oracle_state::alloy_provider::{RootProvider, network::AnyNetwork};
+use evm_oracle_state::alloy_rpc_client::RpcClient;
+use evm_oracle_state::alloy_rpc_types_eth::{Filter, Log as RpcLog};
+use evm_oracle_state::alloy_provider::mock::Asserter;
 use evm_fork_cache::{
     StateView,
     cache::EvmCache,

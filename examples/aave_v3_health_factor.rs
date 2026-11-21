@@ -6,9 +6,9 @@ use std::{
     time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
 
-use alloy_network::{AnyNetwork, Ethereum};
+use evm_oracle_state::alloy_network::{AnyNetwork, Ethereum};
 use alloy_primitives::{Address, I256, U256, address};
-use alloy_provider::{ProviderBuilder, RootProvider, WsConnect};
+use evm_oracle_state::alloy_provider::{ProviderBuilder, RootProvider, WsConnect};
 use alloy_sol_types::sol;
 use evm_fork_cache::{
     cache::EvmCache,

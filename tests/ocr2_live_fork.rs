@@ -2,11 +2,11 @@
 
 use std::{error::Error, sync::Arc};
 
-use alloy_eips::{BlockId, BlockNumberOrTag};
-use alloy_network::{AnyNetwork, Ethereum, TransactionBuilder};
+use evm_oracle_state::alloy_eips::{BlockId, BlockNumberOrTag};
+use evm_oracle_state::alloy_network::{AnyNetwork, Ethereum, TransactionBuilder};
 use alloy_primitives::{Address, B256, Bytes, I256, Log as PrimitiveLog, U256, address, b256};
-use alloy_provider::{Provider, RootProvider};
-use alloy_rpc_types_eth::{Log as RpcLog, TransactionRequest};
+use evm_oracle_state::alloy_provider::{Provider, RootProvider};
+use evm_oracle_state::alloy_rpc_types_eth::{Log as RpcLog, TransactionRequest};
 use alloy_sol_types::SolCall;
 use evm_fork_cache::{
     StateUpdate,
@@ -21,7 +21,7 @@ use evm_oracle_state::{
     OraclePriceUpdate, OracleReactiveHandler, OracleRegistry, OracleSignalKind, ProviderFuture,
     RoundData, StalenessPolicy,
 };
-use revm::context::result::ExecutionResult;
+use evm_oracle_state::revm::context::result::ExecutionResult;
 
 alloy_sol_types::sol! {
     function latestRoundData() external view returns (

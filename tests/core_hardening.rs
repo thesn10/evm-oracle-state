@@ -5,11 +5,11 @@
 
 use std::{borrow::Cow, marker::PhantomData, sync::Arc};
 
-use alloy_network::Ethereum;
+use evm_oracle_state::alloy_network::Ethereum;
 use alloy_primitives::{Address, B256, I256, U256};
-use alloy_provider::{RootProvider, network::AnyNetwork};
-use alloy_rpc_client::RpcClient;
-use alloy_transport::mock::Asserter;
+use evm_oracle_state::alloy_provider::{RootProvider, network::AnyNetwork};
+use evm_oracle_state::alloy_rpc_client::RpcClient;
+use evm_oracle_state::alloy_provider::mock::Asserter;
 use evm_fork_cache::{
     cache::EvmCache,
     reactive::{
