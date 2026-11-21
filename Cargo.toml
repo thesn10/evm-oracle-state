@@ -78,7 +78,7 @@ pending-oracle-mev-share = [
 live-tests = []
 
 [dependencies]
-evm-fork-cache = { version = "0.4.0", default-features = false, features = ["reactive", "reactive-ws"] }
+evm-fork-cache = { git = "https://github.com/thesn10/evm-fork-cache", branch = "main", default-features = false, features = ["reactive", "reactive-ws"] }
 
 alloy-primitives = { version = ">=1.4, <2", features = ["map"] }
 alloy-sol-types = ">=1.4, <2"
