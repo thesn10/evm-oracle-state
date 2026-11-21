@@ -33,7 +33,18 @@ exclude = [
 # published docs expose the complete public surface. `--cfg docsrs` is retained
 # for docs.rs-only annotations in the crate root.
 [package.metadata.docs.rs]
-all-features = true
+features = [
+    "alloy1",
+    "aave",
+    "morpho",
+    "euler",
+    "pyth",
+    "redstone",
+    "pending-oracle-updates",
+    "pending-oracle-ethereum",
+    "pending-oracle-mev-share",
+    "live-tests",
+]
 rustdoc-args = ["--cfg", "docsrs"]
 
 # Standalone workspace root: keeps this crate from being absorbed by any
@@ -41,7 +52,9 @@ rustdoc-args = ["--cfg", "docsrs"]
 [workspace]
 
 [features]
-default = []
+default = ["alloy1"]
+alloy1 = ["evm-fork-cache/alloy1"]
+alloy2 = ["evm-fork-cache/alloy2"]
 aave = []
 morpho = []
 euler = []
@@ -50,7 +63,6 @@ redstone = []
 pending-oracle-updates = []
 pending-oracle-ethereum = [
     "pending-oracle-updates",
-    "dep:alloy-consensus",
     "dep:futures-util",
     "dep:serde_json",
     "dep:tokio-tungstenite",
@@ -63,18 +75,13 @@ pending-oracle-mev-share = [
     "dep:serde_json",
     "tokio/time",
 ]
-live-tests = ["alloy-provider/ws"]
+live-tests = []
 
 [dependencies]
-evm-fork-cache = "0.4.0"
+evm-fork-cache = { version = "0.4.0", default-features = false, features = ["reactive", "reactive-ws"] }
 
-alloy-eips = "1.0.38"
-alloy-consensus = { version = "1.0.38", optional = true }
-alloy-network = "1.0.38"
-alloy-primitives = { version = "1.4", features = ["map"] }
-alloy-provider = "1.0.38"
-alloy-rpc-types-eth = "1.0.38"
-alloy-sol-types = "1.4"
+alloy-primitives = { version = ">=1.4, <2", features = ["map"] }
+alloy-sol-types = ">=1.4, <2"
 
 thiserror = "2.0"
 tokio = { version = "1.48.0", features = ["rt-multi-thread", "sync"] }
@@ -85,14 +92,10 @@ serde_json = { version = "1.0", optional = true }
 tokio-tungstenite = { version = "0.26", features = ["rustls-tls-webpki-roots"], optional = true }
 
 [dev-dependencies]
-alloy-provider = { version = "1.0.38", features = ["ws"] }
-alloy-rpc-client = "1.0.38"
-alloy-transport = "1.0.38"
 # Benchmark harness. `default-features = false` drops criterion's `rayon` +
 # `plotters` deps — keeps the build lean and, since the crate deliberately ships
 # without rayon, avoids reintroducing it even in the dev/bench build.
 criterion = { version = "0.5", default-features = false }
-revm = "34.0.0"
 tokio = { version = "1.48.0", features = ["macros", "rt-multi-thread"] }
 
 # Fully-OFFLINE oracle hot-path micro-benchmarks (mock-backed, no RPC, no env):

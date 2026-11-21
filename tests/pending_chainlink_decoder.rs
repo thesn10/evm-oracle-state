@@ -3,7 +3,7 @@
 use alloy_primitives::{
     Address, B256, Bytes, I256, Log as PrimitiveLog, U256, aliases::I192, aliases::U40,
 };
-use alloy_rpc_types_eth::Log as RpcLog;
+use evm_oracle_state::alloy_rpc_types_eth::Log as RpcLog;
 use alloy_sol_types::SolEvent;
 use evm_oracle_state::{
     ChainlinkFeed, ChainlinkFeedProvider, OCR2_NEW_TRANSMISSION_TOPIC, OracleRuntime,

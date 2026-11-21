@@ -2,11 +2,11 @@
 
 use std::{sync::Arc, time::SystemTime};
 
-use alloy_network::{AnyNetwork, Ethereum};
+use evm_oracle_state::alloy_network::{AnyNetwork, Ethereum};
 use alloy_primitives::{Address, B256, I256, U256};
-use alloy_provider::RootProvider;
-use alloy_rpc_client::RpcClient;
-use alloy_transport::mock::Asserter;
+use evm_oracle_state::alloy_provider::RootProvider;
+use evm_oracle_state::alloy_rpc_client::RpcClient;
+use evm_oracle_state::alloy_provider::mock::Asserter;
 use evm_oracle_state::evm_fork_cache::cache::EvmCache;
 use evm_oracle_state::evm_fork_cache::reactive::{
     EventSubscriber, ReactiveInputBatch, ReactiveInterest, SubscriberNextBatch,

@@ -4,9 +4,9 @@ use std::{
     sync::Arc,
 };
 
-use alloy_network::Ethereum;
+use crate::alloy_network::Ethereum;
 use alloy_primitives::{Address, B256, I256, U256};
-use alloy_rpc_types_eth::Filter;
+use crate::alloy_rpc_types_eth::Filter;
 use evm_fork_cache::{
     StateView,
     reactive::{
@@ -159,7 +159,7 @@ impl OracleReactiveHandler {
     fn handle_answer_updated(
         &self,
         ctx: &ReactiveContext,
-        log: &alloy_rpc_types_eth::Log,
+        log: &crate::alloy_rpc_types_eth::Log,
         state: &dyn StateView,
     ) -> Result<HandlerOutcome, HandlerError> {
         let aggregator = log.address();
@@ -261,7 +261,7 @@ impl OracleReactiveHandler {
     fn handle_ocr2_new_transmission(
         &self,
         ctx: &ReactiveContext,
-        log: &alloy_rpc_types_eth::Log,
+        log: &crate::alloy_rpc_types_eth::Log,
         state: &dyn StateView,
     ) -> Result<HandlerOutcome, HandlerError> {
         let aggregator = log.address();
@@ -349,7 +349,7 @@ impl OracleReactiveHandler {
     fn handle_ocr1_new_transmission(
         &self,
         ctx: &ReactiveContext,
-        log: &alloy_rpc_types_eth::Log,
+        log: &crate::alloy_rpc_types_eth::Log,
         state: &dyn StateView,
     ) -> Result<HandlerOutcome, HandlerError> {
         let aggregator = log.address();

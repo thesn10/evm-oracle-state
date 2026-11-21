@@ -1,18 +1,18 @@
 use std::sync::Arc;
 
-use alloy_network::AnyNetwork;
+use evm_oracle_state::alloy_network::AnyNetwork;
 use alloy_primitives::{Address, I256, U256};
-use alloy_provider::RootProvider;
-use alloy_rpc_client::RpcClient;
-use alloy_transport::mock::Asserter;
+use evm_oracle_state::alloy_provider::RootProvider;
+use evm_oracle_state::alloy_rpc_client::RpcClient;
+use evm_oracle_state::alloy_provider::mock::Asserter;
 use evm_fork_cache::cache::EvmCache;
 use evm_oracle_state::{
     AggregatorLayoutEvidence, ChainlinkOcr2StorageAdapter, FeedId, FeedMetadata, FeedRegistration,
     FeedSource, OracleFeedStatus, OracleOverlayMockExt, OraclePriceMock, OracleRuntime,
     OracleTracker, RoundData, StalenessPolicy,
 };
-use revm::database_interface::Database;
-use revm::state::AccountInfo;
+use evm_oracle_state::revm::database_interface::Database;
+use evm_oracle_state::revm::state::AccountInfo;
 
 async fn mocked_cache() -> EvmCache {
     let client = RpcClient::mocked(Asserter::new());

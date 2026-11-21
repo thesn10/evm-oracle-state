@@ -5,7 +5,7 @@ use std::{
     time::{SystemTime, UNIX_EPOCH},
 };
 
-use alloy_network::{Ethereum, Network};
+use crate::alloy_network::{Ethereum, Network};
 use alloy_primitives::{Address, Bytes, U256};
 use alloy_sol_types::SolCall;
 use evm_fork_cache::{
@@ -1888,7 +1888,7 @@ fn oracle_cold_start_discovery_calls(
 mod tests {
     use super::*;
     use evm_fork_cache::{ColdStartCallResult, StorageAccessList};
-    use revm::context::result::{ExecutionResult, Output, SuccessReason};
+    use crate::revm::context::result::{ExecutionResult, Output, SuccessReason};
 
     #[derive(Default)]
     struct EmptyStateView;
@@ -1914,8 +1914,12 @@ mod tests {
             discovered: vec![ColdStartCallResult {
                 result: ExecutionResult::Success {
                     reason: SuccessReason::Return,
+                    #[cfg(feature = "alloy1")]
                     gas_used: 0,
+                    #[cfg(feature = "alloy1")]
                     gas_refunded: 0,
+                    #[cfg(feature = "alloy2")]
+                    gas: Default::default(),
                     logs: Vec::new(),
                     output: Output::Call(Bytes::new()),
                 },

@@ -9,10 +9,10 @@ use std::{
     time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
 
-use alloy_network::{AnyNetwork, TransactionBuilder};
+use evm_oracle_state::alloy_network::{AnyNetwork, TransactionBuilder};
 use alloy_primitives::{Address, B256, Bytes, I256, U256};
-use alloy_provider::{Provider, RootProvider};
-use alloy_rpc_types_eth::TransactionRequest;
+use evm_oracle_state::alloy_provider::{Provider, RootProvider};
+use evm_oracle_state::alloy_rpc_types_eth::TransactionRequest;
 use alloy_sol_types::{SolCall, sol};
 use evm_fork_cache::{
     StateView,

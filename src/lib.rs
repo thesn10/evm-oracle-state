@@ -82,6 +82,12 @@
 // `doc_cfg` since 1.92, rust-lang/rust#138907). Inert on stable builds.
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
+#[cfg(all(feature = "alloy1", feature = "alloy2"))]
+compile_error!("features `alloy1` and `alloy2` are mutually exclusive; pass `--no-default-features --features alloy2`");
+
+#[cfg(not(any(feature = "alloy1", feature = "alloy2")))]
+compile_error!("exactly one of features `alloy1` or `alloy2` must be enabled");
+
 /// Re-export of [`alloy_primitives`]: the `Address` / `U256` / `B256` / `Log`
 /// vocabulary this crate's API speaks.
 ///
@@ -98,6 +104,10 @@ pub use alloy_primitives;
 /// and the two are released in lockstep. Importing it through this re-export
 /// (`evm_oracle_state::evm_fork_cache`) guarantees the versions match.
 pub use evm_fork_cache;
+pub use evm_fork_cache::{
+    alloy_consensus, alloy_eips, alloy_network, alloy_provider, alloy_pubsub, alloy_rpc_client,
+    alloy_rpc_types_eth, revm,
+};
 
 #[cfg(feature = "aave")]
 mod aave;

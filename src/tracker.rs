@@ -1,4 +1,4 @@
-use alloy_network::{Ethereum, Network};
+use crate::alloy_network::{Ethereum, Network};
 use alloy_primitives::{Address, B256, I256, U256};
 use evm_fork_cache::reactive::{ReactiveBatchReport, ReactiveReport, ReportTag};
 

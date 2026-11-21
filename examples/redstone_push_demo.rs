@@ -8,11 +8,11 @@ use std::{
 };
 
 #[cfg(feature = "redstone")]
-use alloy_network::{AnyNetwork, Ethereum};
+use evm_oracle_state::alloy_network::{AnyNetwork, Ethereum};
 #[cfg(feature = "redstone")]
 use alloy_primitives::{Address, B256};
 #[cfg(feature = "redstone")]
-use alloy_provider::{ProviderBuilder, RootProvider, WsConnect};
+use evm_oracle_state::alloy_provider::{ProviderBuilder, RootProvider, WsConnect};
 #[cfg(feature = "redstone")]
 use evm_fork_cache::{
     cache::EvmCache,

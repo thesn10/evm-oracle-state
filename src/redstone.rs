@@ -5,9 +5,9 @@ use std::{
     time::{SystemTime, UNIX_EPOCH},
 };
 
-use alloy_network::Ethereum;
+use crate::alloy_network::Ethereum;
 use alloy_primitives::{Address, B256, I256, U256, keccak256};
-use alloy_rpc_types_eth::Filter;
+use crate::alloy_rpc_types_eth::Filter;
 use alloy_sol_types::sol;
 use evm_fork_cache::{
     StateUpdate, StateView,
@@ -646,7 +646,7 @@ impl RedstoneReactiveHandler {
     fn handle_value_update(
         &self,
         ctx: &ReactiveContext,
-        log: &alloy_rpc_types_eth::Log,
+        log: &crate::alloy_rpc_types_eth::Log,
         state: &dyn StateView,
     ) -> Result<HandlerOutcome, HandlerError> {
         let event = decode_redstone_value_update(log).map_err(|error| {
@@ -680,7 +680,7 @@ impl RedstoneReactiveHandler {
     fn handle_answer_updated(
         &self,
         ctx: &ReactiveContext,
-        log: &alloy_rpc_types_eth::Log,
+        log: &crate::alloy_rpc_types_eth::Log,
         state: &dyn StateView,
     ) -> Result<HandlerOutcome, HandlerError> {
         let price_feed = log.address();
@@ -711,7 +711,7 @@ impl RedstoneReactiveHandler {
     fn outcome_for_registrations(
         &self,
         ctx: &ReactiveContext,
-        log: &alloy_rpc_types_eth::Log,
+        log: &crate::alloy_rpc_types_eth::Log,
         registrations: &[FeedRegistration],
         event_source: Address,
         raw_answer: I256,

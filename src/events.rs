@@ -1,5 +1,5 @@
 use alloy_primitives::{Address, B256, FixedBytes, I256, U256, b256};
-use alloy_rpc_types_eth::Log as RpcLog;
+use crate::alloy_rpc_types_eth::Log as RpcLog;
 use alloy_sol_types::SolEvent;
 
 use crate::ChainlinkEventDecodeError;

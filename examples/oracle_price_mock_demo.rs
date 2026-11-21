@@ -24,18 +24,18 @@
 
 use std::{error::Error, sync::Arc};
 
-use alloy_network::AnyNetwork;
+use evm_oracle_state::alloy_network::AnyNetwork;
 use alloy_primitives::{Address, I256, U256};
-use alloy_provider::RootProvider;
-use alloy_rpc_client::RpcClient;
-use alloy_transport::mock::Asserter;
+use evm_oracle_state::alloy_provider::RootProvider;
+use evm_oracle_state::alloy_rpc_client::RpcClient;
+use evm_oracle_state::alloy_provider::mock::Asserter;
 use evm_fork_cache::{StateUpdate, cache::EvmCache};
 use evm_oracle_state::{
     AggregatorLayoutEvidence, ChainlinkOcr2StorageAdapter, FeedId, FeedMetadata, FeedRegistration,
     FeedSource, OracleFeedStatus, OracleOverlayMockExt, OraclePriceMock, OracleRuntime,
     OracleTracker, RoundData, StalenessPolicy,
 };
-use revm::{database_interface::Database, state::AccountInfo};
+use evm_oracle_state::revm::{database_interface::Database, state::AccountInfo};
 
 const ETH_PROXY: Address = Address::repeat_byte(0x10);
 const ETH_AGGREGATOR: Address = Address::repeat_byte(0x20);
